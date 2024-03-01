@@ -201,13 +201,22 @@ python3 generate_TA_json.py inputs/TA\ 1-4\ Baraha.docx inputs/TA\ 5-6\ Baraha.d
 ```
 This step generates a file called ***TA.json*** 
 
-### Step 3f Generate the PDF and the markdown files ###
+
+### Step 3f Generate the json files with the Taittriya Brahmanam ###
+
+```
+python3 generate_TB_json.py inputs/TB\ 1.1-1.4\ Baraha.docx inputs/TB\ 1.5-1.8\ Baraha.docx inputs/TB\ 2.1-2.4\ Baraha.docx inputs/TB\ 2.5-2.8\ Baraha.docx inputs/TB\ 3.1-3.6\ Baraha.docx inputs/TB\ 3.7-3.12\ Baraha.docx > x.txt
+```
+
+This step generates a file called ***TB.json***
+
+### Step 3g Generate the PDF and the markdown files ###
 
 ```
 python3 generatePDF.py
 ```
 
-This step generates the files under the ***outputs/pdf*** and ***outputs/md*** directory . There are subdirectories created named _Samhita_ , _Pada_ , and _Aaranyaka_ respectively
+This step generates the files under the ***outputs/pdf*** and ***outputs/md*** directory . There are subdirectories created named _Samhita_ , _Pada_ , _Aaranyaka_ and _Brahmanam_  respectively
 
 Implementation notes
 

@@ -1,0 +1,80 @@
+\documentclass[17pt]{extarticle}
+\usepackage{babel}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{extsizes}
+
+
+
+\setmainlanguage{sanskrit}
+\setotherlanguages{english} %% or other languages
+\setlength{\parindent}{0pt}
+\pagestyle{myheadings}
+\newfontfamily\devanagarifont[Script=Devanagari]{AdishilaVedic}
+
+
+\newcommand{\VAR}[1]{}
+\newcommand{\BLOCK}[1]{}
+
+
+
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+ 
+\begin{sanskrit}
+    { \Large
+    \VAR{invocation} 
+    }
+    \\
+    \vspace{2.5cm}
+    \mbox{ \Huge
+    \VAR{title}   }
+\end{sanskrit}
+\end{center}
+
+\end{titlepage}
+\tableofcontents
+\pagebreak
+\VAR{invocation} \newline
+\VAR{title} \newline
+\BLOCK{for prapaataka in prasna['Prapaataka']}
+     \addcontentsline{toc}{section}{ \VAR{ prapaataka['sectionTitle'].strip() }}
+     \markright{ \VAR{ prapaataka['sectionTitle'].strip()} \hfill https://www.vedavms.in \hfill}
+     \section*{ \VAR{ prapaataka['sectionTitle'].strip()} }
+        \BLOCK{ for anuvakkam in prapaataka['Anuvakkam']}
+        \textbf{ \VAR{ anuvakkam['header'].strip()}} \newline
+              \BLOCK{ for panchasat in anuvakkam['Panchasat']}
+                  \textbf{ TB \VAR{ panchasat['header'].strip()}} \newline
+                  \VAR{ panchasat['SamhitaPaata'].strip() } \textbf{ \VAR{ panchasat['id']}} \newline
+                  \newline
+              \BLOCK{endfor}
+              \BLOCK{ if anuvakkam.get("SpecialKorvai") }
+              \BLOCK{ for specialKorvai in anuvakkam['SpecialKorvai']}
+              \textbf{\VAR{ specialKorvai['header'].strip()}} \newline
+              \VAR{ specialKorvai['SpecialKorvai'].replace("\n","").strip()} \newline
+              \BLOCK{endfor}
+          \BLOCK{ endif }
+        \VAR{ anuvakkam['Korvai']} \textbf{(A\VAR{ anuvakkam['id']})} \newline \newline
+        \BLOCK{endfor}
+        \textbf{\VAR{ prapaataka['PrapaatakaKorvai_header'].strip()}} \newline
+        \VAR{prapaataka['PrapaatakaKorvai_Sloka'].replace("\n","").strip()} \newline
+
+        \textbf{\VAR{ prapaataka['Korvai_header'].strip()}} \newline
+        \VAR{ prapaataka['Korvai_Sloka'].replace("\n","").strip()} \newline
+
+        \textbf{\VAR{ prapaataka['firstLastPadams_header'].strip()}} \newline
+        \VAR{ prapaataka['firstLastPadams_Sloka'].strip()} \newline 
+
+       
+
+        \VAR{ prapaataka['ending'].strip() } \newline
+        \pagebreak
+        
+        
+        
+\BLOCK{ endfor }
+
+\end{document}
+

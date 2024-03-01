@@ -44,6 +44,11 @@ def CreateMd (templateFileName,name,DocfamilyName,data):
         outputdir="outputs/md/Aaranyaka"
         mdFileName=f"{outputdir}/{name}_{DocfamilyName}_Unicode.md"
         document = template.render(prapaataka=data,invocation=invocation,title=title)
+    elif DocfamilyName == "Brahmanam":
+        outputdir="outputs/md/Brahmanam"
+        mdFileName=f"{outputdir}/{name}_{DocfamilyName}_Unicode.md"
+        document = template.render(prasna=data,invocation=invocation,title=title)
+
     with open(mdFileName,"w") as f:
         f.write(document)
 
@@ -77,6 +82,10 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
     elif DocfamilyName == "Aaranyaka":
         outputdir="outputs/pdf/Aaranyaka"
         document = template.render(prapaataka=data,invocation=invocation,title=title)
+    elif DocfamilyName == "Brahmanam":
+        outputdir="outputs/pdf/Brahmanam"
+        document = template.render(prasna=data,invocation=invocation,title=title)
+
     tmpdirname="."
     with tempfile.TemporaryDirectory() as tmpdirname:
         tmpfilename=f"{tmpdirname}/{TexFileName}"
@@ -147,10 +156,12 @@ DocfamilyName="Samhita"
 samhitaTemplateFile=f"templates/{DocfamilyName}_main.tex"
 padaTemplateFile="templates/Pada_main.tex"
 aaranyakaTemplateFile="templates/Aaranyaka_main.tex"
+brahmanamTemplateFile="templates/Brahmanam_main.tex"
 
 samhita_md_TemplateFile=f"templates/{DocfamilyName}_main.md"
 pada_md_TemplateFile="templates/Pada_main.md"
 aaranyaka_md_TemplateFile="templates/Aaranyaka_main.md"
+brahmanam_md_TemplateFile="templates/Brahmanam_main.md"
 
 beginningTemplateFile=f"templates/{DocfamilyName}_title.tex"
 endingTemplateFile=f"templates/{DocfamilyName}_end.tex"
@@ -171,40 +182,49 @@ autoescape = False,
 loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-print("running xelatex with ",samhitaTemplateFile)
+#print("running xelatex with ",samhitaTemplateFile)
 template = latex_jinja_env.get_template(samhitaTemplateFile)
-kandaInfo=1
-kanda=parseTree['TS']['Kanda'][kandaInfo-1]
-for kanda in parseTree['TS']['Kanda']:
-    invocation=kanda['Prasna'][0]['invocation'].strip()
+prasnaInfo=1
+prasna=parseTree['TS']['Kanda'][prasnaInfo-1]
+for prasna in parseTree['TS']['Kanda']:
+    invocation=prasna['Prasna'][0]['invocation'].strip()
     #invocation=invocation.replace("\n","\\\\")
-    kandaInfo=kanda['id']
-    title=kanda['title']
+    prasnaInfo=prasna['id']
+    title=prasna['title']
     
-    for prasna in kanda['Prasna']:
+    for prasna in prasna['Prasna']:
         prasnaInfo=prasna['id']
-        CreatePdf(padaTemplateFile,f"TS_{kandaInfo}_{prasnaInfo}","Pada",prasna)
-        CreateMd(pada_md_TemplateFile,f"TS_{kandaInfo}_{prasnaInfo}","Pada",prasna)
-        for anuvakkam in prasna['Anuvakkam']:
-            for panchasat in anuvakkam['Panchasat']:
-                #print("Panchasat ",panchasat)
-                pass
-
-    #document = template.render(kanda=kanda,invocation=invocation,title=title)
-    CreatePdf(samhitaTemplateFile,f"TS_{kandaInfo}",DocfamilyName,kanda)
-    CreateMd(samhita_md_TemplateFile,f"TS_{kandaInfo}",DocfamilyName,kanda)
+        CreatePdf(padaTemplateFile,f"TS_{prasnaInfo}_{prasnaInfo}","Pada",prasna)
+        CreateMd(pada_md_TemplateFile,f"TS_{prasnaInfo}_{prasnaInfo}","Pada",prasna)
+        
+    
+    CreatePdf(samhitaTemplateFile,f"TS_{prasnaInfo}",DocfamilyName,prasna)
+    CreateMd(samhita_md_TemplateFile,f"TS_{prasnaInfo}",DocfamilyName,prasna)
 
 ts_string = Path("TA.json").read_text(encoding="utf-8")
 parseTree = json.loads(ts_string)
 for prapaataka in parseTree['TA']['Prapaataka']:
     invocation=prapaataka['invocation'].strip()
-    #invocation=invocation.replace("\n","\\\\")
+   
     prapaatakaInfo=prapaataka['id']
     title=prapaataka['title']
-    #print(title)
+    
     CreatePdf(aaranyakaTemplateFile,f"TA_{prapaatakaInfo}","Aaranyaka",prapaataka)
     CreateMd(aaranyaka_md_TemplateFile,f"TA_{prapaatakaInfo}","Aaranyaka",prapaataka)
-    #document = template.render(prapaataka=prapaataka,invocation=invocation,title=title
     
+
+ts_string = Path("TB.json").read_text(encoding="utf-8")
+parseTree = json.loads(ts_string)    
+for prasna in parseTree['TB']['Prasna']:
+    invocation=prasna['invocation'].strip()
+    
+    prasnaInfo=prasna['id']
+    title=prasna['title']
+    
+    
+    
+    
+    CreatePdf(brahmanamTemplateFile,f"TB_{prasnaInfo}","Brahmanam",prasna)
+    CreateMd(brahmanam_md_TemplateFile,f"TB_{prasnaInfo}","Brahmanam",prasna)
 
 #return exit_code
