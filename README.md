@@ -210,6 +210,12 @@ python3 generate_TB_json.py inputs/TB\ 1.1-1.4\ Baraha.docx inputs/TB\ 1.5-1.8\ 
 
 This step generates a file called ***TB.json***
 
+### Step 3g Generate the json files for the Ghana Paatha ###
+```
+python3 process_ghana.py inputs/TS\ 1.1\ Ghanam\ Baraha.docx inputs/TS\ 1.2\ Ghanam\ Baraha.docx inputs/TS\ 1.3\ Ghanam\ Baraha.docx inputs/TS\ 1.4\ Ghanam\ Baraha.docx inputs/TS\ 1.5\ Ghanam\ Baraha.docx inputs/TS\ 1.6\ Ghanam\ Baraha.docx inputs/TS\ 1.7\ Ghanam\ Baraha.docx inputs/TS\ 1.8\ Ghanam\ Baraha.docx > x.txt 
+```
+
+This step generates a file called TS_withPadaGhana.json
 ### Step 3g Generate the PDF and the markdown files ###
 
 ```

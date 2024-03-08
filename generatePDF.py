@@ -10,9 +10,92 @@ import subprocess
 import tempfile
 import os
 import json
+import urllib.parse
+from requests.models import PreparedRequest
+
 '''
 Bug : Need to add the english prefix into the json tree
 '''
+
+def my_encodeURL(url,params):
+    #x=urllib.parse.quote(URL)
+    #print("URL is ",url, "param1 is ",param1,"value1 is ",value1,"param2 is ",param2,"value2 is ",value2)
+    #x=urllib.parse.quote(url+"?"+param1+"="+value1+"&"+param2+"="+value2)
+    req = PreparedRequest()
+    #params = {param1:value1,param2:value2}
+    req.prepare_url(url, params)
+    #print(req.url)
+    return req.url
+
+def CreateGhanaFiles():
+    repository="https://github.com/hvram1/baraha2unicode/issues/new"
+    outputdir="outputs/md/Ghana"
+    templateIndexFileName="templates/Ghana_Index.md"
+    templateGhanaPaathaFileName="templates/Ghana_main.md"
+    
+    latex_jinja_env = jinja2.Environment(
+        block_start_string = '\BLOCK{',
+        block_end_string = '}',
+        variable_start_string = '\VAR{',
+        variable_end_string = '}',
+        comment_start_string = '\#{',
+        comment_end_string = '}',
+        line_statement_prefix = '%-',
+        line_comment_prefix = '%#',
+        trim_blocks = True,
+        autoescape = False,
+        loader = jinja2.FileSystemLoader(os.path.abspath('.'))
+    )
+    latex_jinja_env.filters["my_encodeURL"] = my_encodeURL
+    ts_string = Path("TS_withPadaGhana.json").read_text(encoding="utf-8")
+    parseTree = json.loads(ts_string)
+    indexLinks={}
+    prevLink=""
+    nextLink=""
+    prevPanchasat=""
+    nextPanchasat=""
+    for kanda in parseTree['TS']['Kanda']:
+        
+        kandaInfo=kanda["id"]
+        indexLinks[kandaInfo]=[]
+        for prasna in kanda['Prasna']:
+            for anuvakkam in prasna['Anuvakkam']:
+                for panchasat in anuvakkam['Panchasat']:
+                    if panchasat.get("GhanaPaatha"):
+                        header=panchasat['header'].strip().replace(" ","_")
+                        node = {"nextLink":nextLink,"prevLink":prevLink}
+                        kandaInfo=str(kanda["id"])
+                        indexLinks[header]=node
+                        if len(prevPanchasat)>0:
+                            indexLinks[prevPanchasat]["nextLink"]=header
+                            indexLinks[header]["prevLink"]=prevPanchasat
+                        prevPanchasat=header
+
+    for kanda in parseTree['TS']['Kanda']:
+        template = latex_jinja_env.get_template(templateIndexFileName)
+        kandaInfo=kanda["id"]
+        mdFileName=f"{outputdir}/README_Kanda_{kandaInfo}.md"
+        #print("Creating file ",mdFileName)
+        document = template.render(kanda=kanda)
+        with open(mdFileName,"w") as f:
+            f.write(document)
+        for prasna in kanda['Prasna']:
+            for anuvakkam in prasna['Anuvakkam']:
+                for panchasat in anuvakkam['Panchasat']:
+                    if panchasat.get("GhanaPaatha"):
+                        header=panchasat['header'].strip().replace(" ","_")
+                        #print("Working with panchasat ",header)
+                        template = latex_jinja_env.get_template(templateGhanaPaathaFileName)
+                        nextLink=indexLinks[header]["nextLink"]
+                        prevLink=indexLinks[header]["prevLink"]
+                        document=template.render(panchasat=panchasat,repository=repository,nextLink=nextLink,prevLink=prevLink)
+                        #panchasatInfo=panchasat['panchasatInfo'].strip()
+                        panchasatFile=f"{outputdir}/Kanda-{kandaInfo}/{header}.md"
+                        #print("Creating File ",panchasatFile)
+                        with open(panchasatFile,"w") as f1:
+                            f1.write(document)
+
+
 def CreateMd (templateFileName,name,DocfamilyName,data):
     outputdir="outputs/md"
     logdir="logs"
@@ -48,6 +131,7 @@ def CreateMd (templateFileName,name,DocfamilyName,data):
         outputdir="outputs/md/Brahmanam"
         mdFileName=f"{outputdir}/{name}_{DocfamilyName}_Unicode.md"
         document = template.render(prasna=data,invocation=invocation,title=title)
+    
 
     with open(mdFileName,"w") as f:
         f.write(document)
@@ -157,14 +241,13 @@ samhitaTemplateFile=f"templates/{DocfamilyName}_main.tex"
 padaTemplateFile="templates/Pada_main.tex"
 aaranyakaTemplateFile="templates/Aaranyaka_main.tex"
 brahmanamTemplateFile="templates/Brahmanam_main.tex"
-
+ghanamTemplateFile="templates/Ghanam_main.tex"
 samhita_md_TemplateFile=f"templates/{DocfamilyName}_main.md"
 pada_md_TemplateFile="templates/Pada_main.md"
 aaranyaka_md_TemplateFile="templates/Aaranyaka_main.md"
 brahmanam_md_TemplateFile="templates/Brahmanam_main.md"
 
-beginningTemplateFile=f"templates/{DocfamilyName}_title.tex"
-endingTemplateFile=f"templates/{DocfamilyName}_end.tex"
+
 
 outputdir="outputs"
 logdir="logs"
@@ -182,7 +265,7 @@ autoescape = False,
 loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-#print("running xelatex with ",samhitaTemplateFile)
+'''#print("running xelatex with ",samhitaTemplateFile)
 template = latex_jinja_env.get_template(samhitaTemplateFile)
 prasnaInfo=1
 prasna=parseTree['TS']['Kanda'][prasnaInfo-1]
@@ -226,5 +309,10 @@ for prasna in parseTree['TB']['Prasna']:
     
     CreatePdf(brahmanamTemplateFile,f"TB_{prasnaInfo}","Brahmanam",prasna)
     CreateMd(brahmanam_md_TemplateFile,f"TB_{prasnaInfo}","Brahmanam",prasna)
+'''
+CreateGhanaFiles()
 
 #return exit_code
+'''
+[Raise a correction](\VAR{ repository}/issues/new?title=\VAR{ panchasat['header'].strip()}-\VAR{ ghana['Vakhyam']['id'].strip() }&body=\VAR{ ghana['Vakhyam']['padaVakhyam']}\\n\\n\VAR{ ghana['Vakhyam']['ghanaVakhyam'].strip() })
+'''
