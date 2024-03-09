@@ -67,8 +67,8 @@ def CreateGhanaFiles():
                         kandaInfo=str(kanda["id"])
                         indexLinks[header]=node
                         if len(prevPanchasat)>0:
-                            indexLinks[prevPanchasat]["nextLink"]=header
-                            indexLinks[header]["prevLink"]=prevPanchasat
+                            indexLinks[prevPanchasat]["nextLink"]=header+".md"
+                            indexLinks[header]["prevLink"]=prevPanchasat+".md"
                         prevPanchasat=header
 
     for kanda in parseTree['TS']['Kanda']:
