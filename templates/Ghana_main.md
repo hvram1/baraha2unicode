@@ -9,7 +9,7 @@
 
 
 
-\VAR{ ghana['Vakhyam']['reference']} [Raise a correction](\VAR{repository  | my_encodeURL( {"title":panchasat['header'].strip()+"-"+ghana['Vakhyam']['id'].strip(),"body":ghana['Vakhyam']['padaVakhyam'] + "\n\n\n" + ghana['Vakhyam']['ghanaVakhyam'].strip(),"labels":"तैत्रिय संसिता घन पाठ" }) })
+\VAR{ ghana['Vakhyam']['reference']} [Raise a correction](\VAR{repository  | my_encodeURL( {"title":"Panchasat - " + panchasat['header'].strip()+" Vakhyam -"+ghana['Vakhyam']['id'].strip(),"body":ghana['Vakhyam']['padaVakhyam'] + "\n\n\n" + ghana['Vakhyam']['ghanaVakhyam'].strip(),"labels":"तैत्रिय संसिता घन पाठ" }) })
 
 ## \VAR{ ghana['Vakhyam']['ghanaVakhyam'].strip() } ##
 
