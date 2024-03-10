@@ -30,8 +30,10 @@ def my_encodeURL(url,params):
 def CreateGhanaFiles():
     repository="https://github.com/hvram1/baraha2unicode/issues/new"
     outputdir="outputs/md/Ghana"
+    textoutputdir="outputs/text/Ghana"
     templateIndexFileName="templates/Ghana_Index.md"
     templateGhanaPaathaFileName="templates/Ghana_main.md"
+    templateGhanaPaathaFileNameText="templates/Ghana_main.txt"
     
     latex_jinja_env = jinja2.Environment(
         block_start_string = '\BLOCK{',
@@ -79,6 +81,7 @@ def CreateGhanaFiles():
         document = template.render(kanda=kanda)
         with open(mdFileName,"w") as f:
             f.write(document)
+
         for prasna in kanda['Prasna']:
             for anuvakkam in prasna['Anuvakkam']:
                 for panchasat in anuvakkam['Panchasat']:
@@ -86,14 +89,21 @@ def CreateGhanaFiles():
                         header=panchasat['header'].strip().replace(" ","_")
                         #print("Working with panchasat ",header)
                         template = latex_jinja_env.get_template(templateGhanaPaathaFileName)
+                        textTemplate = latex_jinja_env.get_template(templateGhanaPaathaFileNameText)
+
                         nextLink=indexLinks[header]["nextLink"]
                         prevLink=indexLinks[header]["prevLink"]
                         document=template.render(panchasat=panchasat,repository=repository,nextLink=nextLink,prevLink=prevLink)
+                        text_document=textTemplate.render(panchasat=panchasat,repository=repository,nextLink=nextLink,prevLink=prevLink)
                         #panchasatInfo=panchasat['panchasatInfo'].strip()
                         panchasatFile=f"{outputdir}/Kanda-{kandaInfo}/{header}.md"
                         #print("Creating File ",panchasatFile)
                         with open(panchasatFile,"w") as f1:
                             f1.write(document)
+
+                        panchasatTextFile=f"{textoutputdir}/Kanda-{kandaInfo}/{header}.txt"
+                        with open(panchasatTextFile,"w") as f1:
+                            f1.write(text_document)
 
 
 def CreateMd (templateFileName,name,DocfamilyName,data):

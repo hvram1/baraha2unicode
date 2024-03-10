@@ -1,0 +1,7 @@
+\VAR{ panchasat['header'].strip()}
+
+\BLOCK{ for ghana in panchasat['GhanaPaatha']}
+\VAR{ ghana['Vakhyam']['id'].strip() }  \VAR{ ghana['Vakhyam']['padaVakhyam']} 
+\VAR{ ghana['Vakhyam']['reference']} 
+\VAR{ ghana['Vakhyam']['ghanaVakhyam'].strip() }
+\BLOCK{endfor}
