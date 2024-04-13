@@ -4,14 +4,20 @@
 \usepackage{polyglossia}
 \usepackage{extsizes}
 
-
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
 
 \setmainlanguage{sanskrit}
 \setotherlanguages{english} %% or other languages
 \setlength{\parindent}{0pt}
 \pagestyle{myheadings}
 \newfontfamily\devanagarifont[Script=Devanagari]{AdishilaVedic}
-
+\renewcommand{\theHsection}{\thepart.section.\thesection}
 
 \newcommand{\VAR}[1]{}
 \newcommand{\BLOCK}[1]{}
@@ -24,25 +30,26 @@
     \begin{center}
  
 \begin{sanskrit}
-    { \Huge
+    { \Large
     कृष्ण यजुर्वेदीय तैत्तिरीय संहिता,पद,जटा,घन पाठः 
     }
     \\
     \vspace{2.5cm}
-    \mbox{ \Huge
+    \mbox{ \Large
     \VAR{ prasna['section'].strip() }   }
 \end{sanskrit}
 \end{center}
 
 \end{titlepage}
 \tableofcontents
+\phantomsection
 \pagebreak
 
 \BLOCK{ for anuvakkam in prasna['Anuvakkam']}
 \BLOCK{ for panchasat in anuvakkam['Panchasat']}
 \markright{ \VAR{ panchasat['header'].strip()}  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ \VAR{ panchasat['header'].strip()} }
-\section*{ \VAR{ panchasat['header'].strip()} }
+
+\section{ \VAR{ panchasat['header'].strip()} }
 
 \textbf{\VAR{ panchasat['header'].strip()} } \newline
 \BLOCK{ if panchasat.get("SamhitaPaata") }

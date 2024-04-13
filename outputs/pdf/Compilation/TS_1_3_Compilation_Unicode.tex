@@ -4,14 +4,20 @@
 \usepackage{polyglossia}
 \usepackage{extsizes}
 
-
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
 
 \setmainlanguage{sanskrit}
 \setotherlanguages{english} %% or other languages
 \setlength{\parindent}{0pt}
 \pagestyle{myheadings}
 \newfontfamily\devanagarifont[Script=Devanagari]{AdishilaVedic}
-
+\renewcommand{\theHsection}{\thepart.section.\thesection}
 
 \newcommand{\VAR}[1]{}
 \newcommand{\BLOCK}[1]{}
@@ -24,23 +30,24 @@
     \begin{center}
  
 \begin{sanskrit}
-    { \Huge
+    { \Large
     कृष्ण यजुर्वेदीय तैत्तिरीय संहिता,पद,जटा,घन पाठः 
     }
     \\
     \vspace{2.5cm}
-    \mbox{ \Huge
+    \mbox{ \Large
     1.3     प्रथमकाण्डे तृतीयः प्रश्नः -(अग्निष्टोमे पशुः)   }
 \end{sanskrit}
 \end{center}
 
 \end{titlepage}
 \tableofcontents
+\phantomsection
 \pagebreak
 
 \markright{ TS 1.3.1.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.1.1 }
-\section*{ TS 1.3.1.1 }
+
+\section{ TS 1.3.1.1 }
 
 \textbf{TS 1.3.1.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -176,8 +183,8 @@
 55. द्वेषो॑ य॒वय॑ य॒वय॒ द्वेषो॒ द्वेषो॑ य॒वया रा॑ती॒ ररा॑तीर् य॒वय॒ द्वेषो॒ द्वेषो॑ य॒वया रा॑तीः । \newline
 \pagebreak
 \markright{ TS 1.3.1.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.1.2 }
-\section*{ TS 1.3.1.2 }
+
+\section{ TS 1.3.1.2 }
 
 \textbf{TS 1.3.1.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -355,8 +362,8 @@
 77. त्वेति॑ त्वा । \newline
 \pagebreak
 \markright{ TS 1.3.2.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.2.1 }
-\section*{ TS 1.3.2.1 }
+
+\section{ TS 1.3.2.1 }
 
 \textbf{TS 1.3.2.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -506,8 +513,8 @@
 63. ह॒न्ता र॑क्षो॒हणो॑ रक्षो॒हणो॑ ह॒न्ता ह॒न्ता र॑क्षो॒हणो॑ वलग॒हनो॑ वलग॒हनो॑ रक्षो॒हणो॑ ह॒न्ता ह॒न्ता र॑क्षो॒हणो॑ वलग॒हनः॑ । \newline
 \pagebreak
 \markright{ TS 1.3.2.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.2.2 }
-\section*{ TS 1.3.2.2 }
+
+\section{ TS 1.3.2.2 }
 
 \textbf{TS 1.3.2.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -676,8 +683,8 @@
 73. व॒देति॑ वद । \newline
 \pagebreak
 \markright{ TS 1.3.3.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.3.1 }
-\section*{ TS 1.3.3.1 }
+
+\section{ TS 1.3.3.1 }
 
 \textbf{TS 1.3.3.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -849,8 +856,8 @@
 74. हि॒(ग्म्॒)सी॒रिति॑ हिꣳसीः । \newline
 \pagebreak
 \markright{ TS 1.3.4.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.4.1 }
-\section*{ TS 1.3.4.1 }
+
+\section{ TS 1.3.4.1 }
 
 \textbf{TS 1.3.4.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -990,8 +997,8 @@
 58. गा॒तु॒विदिति॑ गातु - वित् । \newline
 \pagebreak
 \markright{ TS 1.3.4.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.4.2 }
-\section*{ TS 1.3.4.2 }
+
+\section{ TS 1.3.4.2 }
 
 \textbf{TS 1.3.4.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -1124,8 +1131,8 @@
 55. अ॒भि वि व्या᳚(1॒)भ्य॑भि वि ख्ये॑षम् ख्येषं॒ ॅव्या᳚(1॒)भ्य॑भि वि ख्ये॑षम् । \newline
 \pagebreak
 \markright{ TS 1.3.4.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.4.3 }
-\section*{ TS 1.3.4.3 }
+
+\section{ TS 1.3.4.3 }
 
 \textbf{TS 1.3.4.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -1218,8 +1225,8 @@
 35. व्र॒तानीति॑ व्र॒तानि॑ । \newline
 \pagebreak
 \markright{ TS 1.3.5.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.5.1 }
-\section*{ TS 1.3.5.1 }
+
+\section{ TS 1.3.5.1 }
 
 \textbf{TS 1.3.5.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -1374,8 +1381,8 @@
 66. सु॒वीर॒ इति॑ सु - वीरः॑ । \newline
 \pagebreak
 \markright{ TS 1.3.6.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.6.1 }
-\section*{ TS 1.3.6.1 }
+
+\section{ TS 1.3.6.1 }
 
 \textbf{TS 1.3.6.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -1509,8 +1516,8 @@
 55. उ॒श्म॒सी॒ ग॒मद्ध्ये॑ ग॒मद्ध्य॑ उश्म स्युश्मसी ग॒मद्ध्ये॒ गावो॒ गावो॑ ग॒मद्ध्य॑ उश्म स्युश्मसी ग॒मद्ध्ये॒ गावः॑ । \newline
 \pagebreak
 \markright{ TS 1.3.6.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.6.2 }
-\section*{ TS 1.3.6.2 }
+
+\section{ TS 1.3.6.2 }
 
 \textbf{TS 1.3.6.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -1687,8 +1694,8 @@
 77. गू॒हा॒मीति॑ गूहामि । \newline
 \pagebreak
 \markright{ TS 1.3.7.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.7.1 }
-\section*{ TS 1.3.7.1 }
+
+\section{ TS 1.3.7.1 }
 
 \textbf{TS 1.3.7.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -1817,8 +1824,8 @@
 53. भव॑तम् नो नो॒ भव॑त॒म् भव॑तम् नः॒ सम॑नसौ॒ सम॑नसौ नो॒ भव॑त॒म् भव॑तन्नः॒ सम॑नसौ । \newline
 \pagebreak
 \markright{ TS 1.3.7.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.7.2 }
-\section*{ TS 1.3.7.2 }
+
+\section{ TS 1.3.7.2 }
 
 \textbf{TS 1.3.7.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -1918,8 +1925,8 @@
 38. भा॒ग॒धेय॒मिति॑ भाग - धेय᳚म् । \newline
 \pagebreak
 \markright{ TS 1.3.8.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.8.1 }
-\section*{ TS 1.3.8.1 }
+
+\section{ TS 1.3.8.1 }
 
 \textbf{TS 1.3.8.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -2064,8 +2071,8 @@
 61. दे॒वेन॒ वाते॑न॒ वाते॑न दे॒वेन॑ दे॒वेन॒ वाते॑ना॒स्यास्य वाते॑न दे॒वेन॑ दे॒वेन॒ वाते॑ना॒स्य । \newline
 \pagebreak
 \markright{ TS 1.3.8.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.8.2 }
-\section*{ TS 1.3.8.2 }
+
+\section{ TS 1.3.8.2 }
 
 \textbf{TS 1.3.8.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -2190,8 +2197,8 @@
 51. भू॒या॒स्मेति॑ भूयास्म । \newline
 \pagebreak
 \markright{ TS 1.3.9.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.9.1 }
-\section*{ TS 1.3.9.1 }
+
+\section{ TS 1.3.9.1 }
 
 \textbf{TS 1.3.9.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -2322,8 +2329,8 @@
 54. अ॒द्भ्य इत्य॑त् - भ्यः । \newline
 \pagebreak
 \markright{ TS 1.3.9.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.9.2 }
-\section*{ TS 1.3.9.2 }
+
+\section{ TS 1.3.9.2 }
 
 \textbf{TS 1.3.9.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -2470,8 +2477,8 @@
 62. ग॒च्छ॒त॒मिति॑ गच्छतम् । \newline
 \pagebreak
 \markright{ TS 1.3.10.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.10.1 }
-\section*{ TS 1.3.10.1 }
+
+\section{ TS 1.3.10.1 }
 
 \textbf{TS 1.3.10.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -2616,8 +2623,8 @@
 61. वात॑स्य त्वा त्वा॒ वात॑स्य॒ वात॑स्य त्वा॒ ध्रज्यै॒ ध्रज्यै᳚ त्वा॒ वात॑स्य॒ वात॑स्य त्वा॒ ध्रज्यै᳚ । \newline
 \pagebreak
 \markright{ TS 1.3.10.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.10.2 }
-\section*{ TS 1.3.10.2 }
+
+\section{ TS 1.3.10.2 }
 
 \textbf{TS 1.3.10.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -2710,8 +2717,8 @@
 35. दि॒ग्भ्य इति॑ दिक् - भ्यः । \newline
 \pagebreak
 \markright{ TS 1.3.11.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.11.1 }
-\section*{ TS 1.3.11.1 }
+
+\section{ TS 1.3.11.1 }
 
 \textbf{TS 1.3.11.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -2898,8 +2905,8 @@
 82. मु॒ञ्चेति॑ मुञ्च । \newline
 \pagebreak
 \markright{ TS 1.3.12.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.12.1 }
-\section*{ TS 1.3.12.1 }
+
+\section{ TS 1.3.12.1 }
 
 \textbf{TS 1.3.12.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -3002,8 +3009,8 @@
 40. जा॒गृ॒तेति॑ जागृत । \newline
 \pagebreak
 \markright{ TS 1.3.13.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.13.1 }
-\section*{ TS 1.3.13.1 }
+
+\section{ TS 1.3.13.1 }
 
 \textbf{TS 1.3.13.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -3136,8 +3143,8 @@
 55. नु य॒ज्ञ्ं ॅय॒ज्ञ्म् नु नु य॒ज्ञ्ꣳ शृ॒णोतु॑ शृ॒णोतु॑ य॒ज्ञ्म् नु नु य॒ज्ञ्ꣳ शृ॒णोतु॑ । \newline
 \pagebreak
 \markright{ TS 1.3.13.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.13.2 }
-\section*{ TS 1.3.13.2 }
+
+\section{ TS 1.3.13.2 }
 
 \textbf{TS 1.3.13.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -3262,8 +3269,8 @@
 51. इष॒ इतीषः॑ । \newline
 \pagebreak
 \markright{ TS 1.3.14.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.1 }
-\section*{ TS 1.3.14.1 }
+
+\section{ TS 1.3.14.1 }
 
 \textbf{TS 1.3.14.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -3400,8 +3407,8 @@
 56. पु॒रु॒नि॒ष्ठ इति॑ पुरु - नि॒ष्ठः । \newline
 \pagebreak
 \markright{ TS 1.3.14.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.2 }
-\section*{ TS 1.3.14.2 }
+
+\section{ TS 1.3.14.2 }
 
 \textbf{TS 1.3.14.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -3536,8 +3543,8 @@
 56. पु॒र्व॒णी॒केति॑ पुरु - अ॒नी॒क॒ । \newline
 \pagebreak
 \markright{ TS 1.3.14.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.3 }
-\section*{ TS 1.3.14.3 }
+
+\section{ TS 1.3.14.3 }
 
 \textbf{TS 1.3.14.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -3668,8 +3675,8 @@
 54. भ॒रेति॑ भर । \newline
 \pagebreak
 \markright{ TS 1.3.14.4  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.4 }
-\section*{ TS 1.3.14.4 }
+
+\section{ TS 1.3.14.4 }
 
 \textbf{TS 1.3.14.4 } \newline
 \textbf{Samhita Paata} \newline
@@ -3812,8 +3819,8 @@
 60. अ॒भि र॑क्षताद् रक्षता द॒भ्य॑भि र॑क्षतादि॒म मि॒मꣳ र॑क्षता द॒भ्य॑भि र॑क्षता दि॒मम् । \newline
 \pagebreak
 \markright{ TS 1.3.14.5  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.5 }
-\section*{ TS 1.3.14.5 }
+
+\section{ TS 1.3.14.5 }
 
 \textbf{TS 1.3.14.5 } \newline
 \textbf{Samhita Paata} \newline
@@ -3949,8 +3956,8 @@
 56. वयो॑भि॒रिति॒ वयः॑ - भिः॒ । \newline
 \pagebreak
 \markright{ TS 1.3.14.6  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.6 }
-\section*{ TS 1.3.14.6 }
+
+\section{ TS 1.3.14.6 }
 
 \textbf{TS 1.3.14.6 } \newline
 \textbf{Samhita Paata} \newline
@@ -4089,8 +4096,8 @@
 58. यश्च॑र्.ष॒णी श्च॑र्.ष॒णीर् यो यश्च॑र्.ष॒णी र॒भ्य॑भि च॑र्.ष॒णीर् यो यश्च॑र्.ष॒णी र॒भि । \newline
 \pagebreak
 \markright{ TS 1.3.14.7  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.7 }
-\section*{ TS 1.3.14.7 }
+
+\section{ TS 1.3.14.7 }
 
 \textbf{TS 1.3.14.7 } \newline
 \textbf{Samhita Paata} \newline
@@ -4228,8 +4235,8 @@
 57. आयू(ग्म्॑)षि पवसे पवस॒ आयू॒(ग्ग्॒) ष्यायू(ग्म्॑)षि पवस॒ आ प॑वस॒ आयू॒(ग्ग्॒) ष्यायू(ग्म्॑)षि पवस॒ आ । \newline
 \pagebreak
 \markright{ TS 1.3.14.8  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 1.3.14.8 }
-\section*{ TS 1.3.14.8 }
+
+\section{ TS 1.3.14.8 }
 
 \textbf{TS 1.3.14.8 } \newline
 \textbf{Samhita Paata} \newline

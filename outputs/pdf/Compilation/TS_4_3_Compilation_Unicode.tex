@@ -4,14 +4,20 @@
 \usepackage{polyglossia}
 \usepackage{extsizes}
 
-
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,  %choose some color if you want links to stand out
+}
 
 \setmainlanguage{sanskrit}
 \setotherlanguages{english} %% or other languages
 \setlength{\parindent}{0pt}
 \pagestyle{myheadings}
 \newfontfamily\devanagarifont[Script=Devanagari]{AdishilaVedic}
-
+\renewcommand{\theHsection}{\thepart.section.\thesection}
 
 \newcommand{\VAR}[1]{}
 \newcommand{\BLOCK}[1]{}
@@ -24,23 +30,24 @@
     \begin{center}
  
 \begin{sanskrit}
-    { \Huge
+    { \Large
     कृष्ण यजुर्वेदीय तैत्तिरीय संहिता,पद,जटा,घन पाठः 
     }
     \\
     \vspace{2.5cm}
-    \mbox{ \Huge
+    \mbox{ \Large
     4.3      चतुर्थकाण्डे तृतीयः प्रश्नः - चितिवर्णनं   }
 \end{sanskrit}
 \end{center}
 
 \end{titlepage}
 \tableofcontents
+\phantomsection
 \pagebreak
 
 \markright{ TS 4.3.1.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.1.1 }
-\section*{ TS 4.3.1.1 }
+
+\section{ TS 4.3.1.1 }
 
 \textbf{TS 4.3.1.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -55,8 +62,8 @@
 
 
 \markright{ TS 4.3.2.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.2.1 }
-\section*{ TS 4.3.2.1 }
+
+\section{ TS 4.3.2.1 }
 
 \textbf{TS 4.3.2.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -71,8 +78,8 @@
 
 
 \markright{ TS 4.3.2.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.2.2 }
-\section*{ TS 4.3.2.2 }
+
+\section{ TS 4.3.2.2 }
 
 \textbf{TS 4.3.2.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -87,8 +94,8 @@
 
 
 \markright{ TS 4.3.2.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.2.3 }
-\section*{ TS 4.3.2.3 }
+
+\section{ TS 4.3.2.3 }
 
 \textbf{TS 4.3.2.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -103,8 +110,8 @@
 
 
 \markright{ TS 4.3.3.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.3.1 }
-\section*{ TS 4.3.3.1 }
+
+\section{ TS 4.3.3.1 }
 
 \textbf{TS 4.3.3.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -119,8 +126,8 @@
 
 
 \markright{ TS 4.3.3.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.3.2 }
-\section*{ TS 4.3.3.2 }
+
+\section{ TS 4.3.3.2 }
 
 \textbf{TS 4.3.3.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -135,8 +142,8 @@
 
 
 \markright{ TS 4.3.4.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.4.1 }
-\section*{ TS 4.3.4.1 }
+
+\section{ TS 4.3.4.1 }
 
 \textbf{TS 4.3.4.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -151,8 +158,8 @@
 
 
 \markright{ TS 4.3.4.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.4.2 }
-\section*{ TS 4.3.4.2 }
+
+\section{ TS 4.3.4.2 }
 
 \textbf{TS 4.3.4.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -167,8 +174,8 @@
 
 
 \markright{ TS 4.3.4.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.4.3 }
-\section*{ TS 4.3.4.3 }
+
+\section{ TS 4.3.4.3 }
 
 \textbf{TS 4.3.4.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -183,8 +190,8 @@
 
 
 \markright{ TS 4.3.5.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.5.1 }
-\section*{ TS 4.3.5.1 }
+
+\section{ TS 4.3.5.1 }
 
 \textbf{TS 4.3.5.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -199,8 +206,8 @@
 
 
 \markright{ TS 4.3.6.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.6.1 }
-\section*{ TS 4.3.6.1 }
+
+\section{ TS 4.3.6.1 }
 
 \textbf{TS 4.3.6.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -215,8 +222,8 @@
 
 
 \markright{ TS 4.3.6.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.6.2 }
-\section*{ TS 4.3.6.2 }
+
+\section{ TS 4.3.6.2 }
 
 \textbf{TS 4.3.6.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -231,8 +238,8 @@
 
 
 \markright{ TS 4.3.7.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.7.1 }
-\section*{ TS 4.3.7.1 }
+
+\section{ TS 4.3.7.1 }
 
 \textbf{TS 4.3.7.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -247,8 +254,8 @@
 
 
 \markright{ TS 4.3.7.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.7.2 }
-\section*{ TS 4.3.7.2 }
+
+\section{ TS 4.3.7.2 }
 
 \textbf{TS 4.3.7.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -263,8 +270,8 @@
 
 
 \markright{ TS 4.3.8.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.8.1 }
-\section*{ TS 4.3.8.1 }
+
+\section{ TS 4.3.8.1 }
 
 \textbf{TS 4.3.8.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -279,8 +286,8 @@
 
 
 \markright{ TS 4.3.9.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.9.1 }
-\section*{ TS 4.3.9.1 }
+
+\section{ TS 4.3.9.1 }
 
 \textbf{TS 4.3.9.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -295,8 +302,8 @@
 
 
 \markright{ TS 4.3.9.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.9.2 }
-\section*{ TS 4.3.9.2 }
+
+\section{ TS 4.3.9.2 }
 
 \textbf{TS 4.3.9.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -311,8 +318,8 @@
 
 
 \markright{ TS 4.3.10.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.10.1 }
-\section*{ TS 4.3.10.1 }
+
+\section{ TS 4.3.10.1 }
 
 \textbf{TS 4.3.10.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -327,8 +334,8 @@
 
 
 \markright{ TS 4.3.10.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.10.2 }
-\section*{ TS 4.3.10.2 }
+
+\section{ TS 4.3.10.2 }
 
 \textbf{TS 4.3.10.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -343,8 +350,8 @@
 
 
 \markright{ TS 4.3.10.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.10.3 }
-\section*{ TS 4.3.10.3 }
+
+\section{ TS 4.3.10.3 }
 
 \textbf{TS 4.3.10.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -359,8 +366,8 @@
 
 
 \markright{ TS 4.3.11.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.11.1 }
-\section*{ TS 4.3.11.1 }
+
+\section{ TS 4.3.11.1 }
 
 \textbf{TS 4.3.11.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -375,8 +382,8 @@
 
 
 \markright{ TS 4.3.11.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.11.2 }
-\section*{ TS 4.3.11.2 }
+
+\section{ TS 4.3.11.2 }
 
 \textbf{TS 4.3.11.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -391,8 +398,8 @@
 
 
 \markright{ TS 4.3.11.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.11.3 }
-\section*{ TS 4.3.11.3 }
+
+\section{ TS 4.3.11.3 }
 
 \textbf{TS 4.3.11.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -407,8 +414,8 @@
 
 
 \markright{ TS 4.3.11.4  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.11.4 }
-\section*{ TS 4.3.11.4 }
+
+\section{ TS 4.3.11.4 }
 
 \textbf{TS 4.3.11.4 } \newline
 \textbf{Samhita Paata} \newline
@@ -423,8 +430,8 @@
 
 
 \markright{ TS 4.3.11.5  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.11.5 }
-\section*{ TS 4.3.11.5 }
+
+\section{ TS 4.3.11.5 }
 
 \textbf{TS 4.3.11.5 } \newline
 \textbf{Samhita Paata} \newline
@@ -439,8 +446,8 @@
 
 
 \markright{ TS 4.3.12.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.12.1 }
-\section*{ TS 4.3.12.1 }
+
+\section{ TS 4.3.12.1 }
 
 \textbf{TS 4.3.12.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -455,8 +462,8 @@
 
 
 \markright{ TS 4.3.12.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.12.2 }
-\section*{ TS 4.3.12.2 }
+
+\section{ TS 4.3.12.2 }
 
 \textbf{TS 4.3.12.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -471,8 +478,8 @@
 
 
 \markright{ TS 4.3.12.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.12.3 }
-\section*{ TS 4.3.12.3 }
+
+\section{ TS 4.3.12.3 }
 
 \textbf{TS 4.3.12.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -487,8 +494,8 @@
 
 
 \markright{ TS 4.3.13.1  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.1 }
-\section*{ TS 4.3.13.1 }
+
+\section{ TS 4.3.13.1 }
 
 \textbf{TS 4.3.13.1 } \newline
 \textbf{Samhita Paata} \newline
@@ -503,8 +510,8 @@
 
 
 \markright{ TS 4.3.13.2  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.2 }
-\section*{ TS 4.3.13.2 }
+
+\section{ TS 4.3.13.2 }
 
 \textbf{TS 4.3.13.2 } \newline
 \textbf{Samhita Paata} \newline
@@ -519,8 +526,8 @@
 
 
 \markright{ TS 4.3.13.3  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.3 }
-\section*{ TS 4.3.13.3 }
+
+\section{ TS 4.3.13.3 }
 
 \textbf{TS 4.3.13.3 } \newline
 \textbf{Samhita Paata} \newline
@@ -535,8 +542,8 @@
 
 
 \markright{ TS 4.3.13.4  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.4 }
-\section*{ TS 4.3.13.4 }
+
+\section{ TS 4.3.13.4 }
 
 \textbf{TS 4.3.13.4 } \newline
 \textbf{Samhita Paata} \newline
@@ -551,8 +558,8 @@
 
 
 \markright{ TS 4.3.13.5  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.5 }
-\section*{ TS 4.3.13.5 }
+
+\section{ TS 4.3.13.5 }
 
 \textbf{TS 4.3.13.5 } \newline
 \textbf{Samhita Paata} \newline
@@ -567,8 +574,8 @@
 
 
 \markright{ TS 4.3.13.6  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.6 }
-\section*{ TS 4.3.13.6 }
+
+\section{ TS 4.3.13.6 }
 
 \textbf{TS 4.3.13.6 } \newline
 \textbf{Samhita Paata} \newline
@@ -583,8 +590,8 @@
 
 
 \markright{ TS 4.3.13.7  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.7 }
-\section*{ TS 4.3.13.7 }
+
+\section{ TS 4.3.13.7 }
 
 \textbf{TS 4.3.13.7 } \newline
 \textbf{Samhita Paata} \newline
@@ -599,8 +606,8 @@
 
 
 \markright{ TS 4.3.13.8  \hfill https://www.vedavms.in \hfill}
-\addcontentsline{toc}{section}{ TS 4.3.13.8 }
-\section*{ TS 4.3.13.8 }
+
+\section{ TS 4.3.13.8 }
 
 \textbf{TS 4.3.13.8 } \newline
 \textbf{Samhita Paata} \newline
