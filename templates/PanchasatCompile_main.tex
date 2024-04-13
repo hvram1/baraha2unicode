@@ -1,0 +1,89 @@
+\documentclass[17pt]{extarticle}
+\usepackage{babel}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{extsizes}
+
+
+
+\setmainlanguage{sanskrit}
+\setotherlanguages{english} %% or other languages
+\setlength{\parindent}{0pt}
+\pagestyle{myheadings}
+\newfontfamily\devanagarifont[Script=Devanagari]{AdishilaVedic}
+
+
+\newcommand{\VAR}[1]{}
+\newcommand{\BLOCK}[1]{}
+
+
+
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+ 
+\begin{sanskrit}
+    { \Huge
+    कृष्ण यजुर्वेदीय तैत्तिरीय संहिता,पद,जटा,घन पाठः 
+    }
+    \\
+    \vspace{2.5cm}
+    \mbox{ \Huge
+    \VAR{ prasna['section'].strip() }   }
+\end{sanskrit}
+\end{center}
+
+\end{titlepage}
+\tableofcontents
+\pagebreak
+
+\BLOCK{ for anuvakkam in prasna['Anuvakkam']}
+\BLOCK{ for panchasat in anuvakkam['Panchasat']}
+\markright{ \VAR{ panchasat['header'].strip()}  \hfill https://www.vedavms.in \hfill}
+\addcontentsline{toc}{section}{ \VAR{ panchasat['header'].strip()} }
+\section*{ \VAR{ panchasat['header'].strip()} }
+
+\textbf{\VAR{ panchasat['header'].strip()} } \newline
+\BLOCK{ if panchasat.get("SamhitaPaata") }
+\textbf{Samhita Paata} \newline
+
+\VAR{ panchasat['SamhitaPaata'].strip() } \newline
+\BLOCK{ endif }
+
+\BLOCK{ if panchasat.get("PadaPaata") }
+\textbf{Pada Paata} \newline
+
+\VAR{ panchasat['PadaPaata'].strip() }  \newline
+
+\BLOCK{ endif }
+
+\BLOCK{ if panchasat.get("KramamPaatha") }
+\textbf{Krama Paata} \newline
+
+\BLOCK{ for Vakhyam in panchasat.KramamPaatha}
+\VAR{Vakhyam['Vakhyam']['kramamVakhyam'].strip()} \newline
+\BLOCK{endfor}
+\BLOCK{ endif }
+
+\BLOCK{ if panchasat.get("JataiPaatha") }
+\textbf{Jatai Paata} \newline
+
+\BLOCK{ for Vakhyam in panchasat.JataiPaatha}
+\VAR{Vakhyam['Vakhyam']['id'].strip()}. \VAR{Vakhyam['Vakhyam']['jataiVakhyam'].strip()} \newline
+\BLOCK{endfor}
+\BLOCK{ endif }
+
+\BLOCK{ if panchasat.get("GhanaPaatha") }
+\textbf{Ghana Paata } \newline
+
+\BLOCK{ for Vakhyam in panchasat.GhanaPaatha}
+\VAR{Vakhyam['Vakhyam']['id'].strip()}. \VAR{Vakhyam['Vakhyam']['ghanaVakhyam'].strip()} \newline
+\BLOCK{endfor}
+\pagebreak
+\BLOCK{ endif }
+\BLOCK{endfor}
+\BLOCK{endfor}
+
+
+\end{document}

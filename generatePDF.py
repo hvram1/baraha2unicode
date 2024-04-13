@@ -27,6 +27,23 @@ def my_encodeURL(url,param1,value1,param2,value2):
     #print(req.url)
     return req.url
 
+def CreateCompilation():
+    outputdir="outputs/md/Compilation"
+    templateFileName_md="templates/PanchasatCompile_main.md"
+    templateFileName_tex="templates/PanchasatCompile_main.tex"
+    
+    ts_string = Path("TS_withPadaGhanaJataiKrama.json").read_text(encoding="utf-8")
+    parseTree = json.loads(ts_string)
+    for kanda in parseTree['TS']['Kanda']:
+        kandaInfo=kanda['id']
+        for prasna in kanda['Prasna']:
+            prasnaInfo=prasna['id']
+            
+            CreateMd(templateFileName_md,f"TS_{kandaInfo}_{prasnaInfo}","Compilation",prasna)
+            CreatePdf(templateFileName_tex,f"TS_{kandaInfo}_{prasnaInfo}","Compilation",prasna)
+                        
+
+
 def CreateGhanaFiles():
     repository="https://github.com/Lab45-RnD-5GSmartEdge/automation/issues/new"
     outputdir="outputs/md/Ghana"
@@ -131,12 +148,17 @@ def CreateMd (templateFileName,name,DocfamilyName,data):
         outputdir="outputs/md/Brahmanam"
         mdFileName=f"{outputdir}/{name}_{DocfamilyName}_Unicode.md"
         document = template.render(prasna=data,invocation=invocation,title=title)
+    elif DocfamilyName == "Compilation":
+        outputdir="outputs/md/Compilation"
+        mdFileName=f"{outputdir}/{name}.md"
+        document = template.render(prasna=data)
     
 
     with open(mdFileName,"w") as f:
         f.write(document)
 
 def CreatePdf (templateFileName,name,DocfamilyName,data):
+    #data=escape_for_latex(data)
     outputdir="outputs"
     logdir="logs"
     latex_jinja_env = jinja2.Environment(
@@ -172,6 +194,9 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
     elif DocfamilyName == "Index":
         outputdir="outputs/pdf/Index"
         document = template.render(padaTupleList=data,invocation=invocation,title=title)
+    elif DocfamilyName == "Compilation":
+        outputdir="outputs/pdf/Compilation"
+        document = template.render(prasna=data)
 
     tmpdirname="."
     with tempfile.TemporaryDirectory() as tmpdirname:
@@ -191,7 +216,7 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
         dst_tex_file=Path(f"{outputdir}/{TexFileName}")
         
         if result.returncode != 0:
-            print('Exit-code not 0  check Code!')
+            print('Exit-code not 0  check Code!',src_tex_file)
             exit_code=1
         path = Path(src_tex_file)
         if path.is_file():
@@ -236,6 +261,7 @@ def escape_for_latex(data):
         return "".join([latex_special_chars.get(c, c) for c in data])
 
     return data
+'''
 ts_string = Path("TS_withPada.json").read_text(encoding="utf-8")
 parseTree = json.loads(ts_string)
 
@@ -318,6 +344,8 @@ for prasna in parseTree['TB']['Prasna']:
     CreateMd(brahmanam_md_TemplateFile,f"TB_{prasnaInfo}","Brahmanam",prasna)
 
 CreateGhanaFiles()
+'''
+CreateCompilation()
 
 #return exit_code
 '''
