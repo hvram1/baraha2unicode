@@ -31,7 +31,7 @@ def CreateCompilation():
     outputdir="outputs/md/Compilation"
     templateFileName_md="templates/PanchasatCompile_main.md"
     templateFileName_tex="templates/PanchasatCompile_main.tex"
-    
+    exit_code=0
     ts_string = Path("TS_withPadaGhanaJataiKrama.json").read_text(encoding="utf-8")
     parseTree = json.loads(ts_string)
     for kanda in parseTree['TS']['Kanda']:
@@ -40,7 +40,11 @@ def CreateCompilation():
             prasnaInfo=prasna['id']
             
             CreateMd(templateFileName_md,f"TS_{kandaInfo}_{prasnaInfo}","Compilation",prasna)
-            CreatePdf(templateFileName_tex,f"TS_{kandaInfo}_{prasnaInfo}","Compilation",prasna)
+            result=CreatePdf(templateFileName_tex,f"TS_{kandaInfo}_{prasnaInfo}","Compilation",prasna)
+            if result != 0:
+                exit_code=1
+                print("stopping the process since there is an error at",kandaInfo,prasnaInfo)
+                return
                         
 
 
@@ -161,6 +165,7 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
     #data=escape_for_latex(data)
     outputdir="outputs"
     logdir="logs"
+    exit_code=0
     latex_jinja_env = jinja2.Environment(
         block_start_string = '\BLOCK{',
         block_end_string = '}',
@@ -228,6 +233,7 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
         if path.is_file():
             src_log_file.rename(dst_log_file)
         #src_toc_file.rename(dst_toc_file)
+    return exit_code
 
 
 

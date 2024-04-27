@@ -83,6 +83,7 @@ anuvakamInformation = pp.Word(pp.nums).setResultsName("anuvakkamInformation")
 panchasatInformation = pp.Word(pp.nums).setResultsName("panchasatInformation")
 
 serialNumber = pp.Word(pp.nums).setResultsName("serialNumber")
+serialNumber_1 = pp.Word(pp.nums).setResultsName("serialNumber_1")
 ghanaVakhyaNumber = pp.Word(pp.nums).setResultsName("ghanaVakhyaNumber")
 
 DocfamilyName1 = pp.CaselessLiteral("Ghanam") 
@@ -98,7 +99,7 @@ padaSeparator1 = pp.CaselessLiteral("|").setResultsName("separator1")
 padaSeparator2 = pp.CaselessLiteral("||").setResultsName("separator2")
 padaSeparator = padaSeparator1 | padaSeparator2
 padam = (~padaSeparator + pp.OneOrMore(pp.Word(pp.printables,exclude_chars='| '),stopOn=padaSeparator)).setResultsName("padam",listAllMatches=True) + padaSeparator
-padaVakhya_prefix=serialNumber+pp.CaselessLiteral(")").suppress() +\
+padaVakhya_prefix_1=serialNumber+pp.CaselessLiteral(")").suppress() +\
               pp.Group(kandaInformation+pp.CaselessLiteral(".") +\
                          prasnaInformation+pp.CaselessLiteral(".") +\
                          anuvakamInformation+pp.CaselessLiteral(".") +\
@@ -107,6 +108,17 @@ padaVakhya_prefix=serialNumber+pp.CaselessLiteral(")").suppress() +\
               pp.CaselessLiteral("(").suppress()+ghanaVakhyaNumber+pp.CaselessLiteral(")").suppress()+\
               pp.CaselessLiteral("-").suppress()
 
+padaVakhya_prefix_2=pp.CaselessLiteral("(").suppress()+serialNumber+pp.CaselessLiteral(")").suppress() +\
+            pp.CaselessLiteral("[P").suppress()+serialNumber_1+pp.CaselessLiteral("]").suppress() +\
+              pp.Group(kandaInformation+pp.CaselessLiteral(".") +\
+                         prasnaInformation+pp.CaselessLiteral(".") +\
+                         anuvakamInformation+pp.CaselessLiteral(".") +\
+                         panchasatInformation
+                         ).setResultsName("info") +\
+              pp.CaselessLiteral("(").suppress()+ghanaVakhyaNumber+pp.CaselessLiteral(")").suppress()+\
+              pp.CaselessLiteral("-").suppress()
+
+padaVakhya_prefix = padaVakhya_prefix_1 | padaVakhya_prefix_2
 
 padaVakhya = padaVakhya_prefix + pp.SkipTo(EOL).setResultsName("padam") + EOL.suppress()
 

@@ -212,16 +212,21 @@ This step generates a file called ***TB.json***
 
 ### Step 3g Generate the json files for the Ghana Paatha ###
 ```
-python3 process_ghana.py inputs/TS\ 1.1\ Ghanam\ Baraha.docx inputs/TS\ 1.2\ Ghanam\ Baraha.docx inputs/TS\ 1.3\ Ghanam\ Baraha.docx inputs/TS\ 1.4\ Ghanam\ Baraha.docx inputs/TS\ 1.5\ Ghanam\ Baraha.docx inputs/TS\ 1.6\ Ghanam\ Baraha.docx inputs/TS\ 1.7\ Ghanam\ Baraha.docx inputs/TS\ 1.8\ Ghanam\ Baraha.docx inputs/TS\ 2.1\ Ghanam\ Baraha.docx inputs/TS\ 2.2\ Ghanam\ Baraha.docx inputs/TS\ 2.3\ Ghanam\ Baraha.docx inputs/TS\ 2.4\ Ghanam\ Baraha.docx inputs/TS\ 2.5\ Ghanam\ Baraha.docx inputs/TS\ 2.6\ Ghanam\ Baraha.docx >x.txt 
+python3 process_ghana.py inputs/TS\ 1.1\ Ghanam\ Baraha.docx inputs/TS\ 1.2\ Ghanam\ Baraha.docx inputs/TS\ 1.3\ Ghanam\ Baraha.docx inputs/TS\ 1.4\ Ghanam\ Baraha.docx inputs/TS\ 1.5\ Ghanam\ Baraha.docx inputs/TS\ 1.6\ Ghanam\ Baraha.docx inputs/TS\ 1.7\ Ghanam\ Baraha.docx inputs/TS\ 1.8\ Ghanam\ Baraha.docx inputs/TS\ 2.1\ Ghanam\ Baraha.docx inputs/TS\ 2.2\ Ghanam\ Baraha.docx inputs/TS\ 2.3\ Ghanam\ Baraha.docx inputs/TS\ 2.4\ Ghanam\ Baraha.docx inputs/TS\ 2.5\ Ghanam\ Baraha.docx inputs/TS\ 2.6\ Ghanam\ Baraha.docx inputs/TS\ 3.1\ Ghanam\ Baraha.docx inputs/TS\ 3.2\ Ghanam\ Baraha.docx inputs/TS\ 3.3\ Ghanam\ Baraha.docx inputs/TS\ 3.4\ Ghanam\ Baraha.docx inputs/TS\ 3.5\ Ghanam\ Baraha.docx inputs/TS\ 4.1\ Ghanam\ Baraha.docx inputs/TS\ 4.2\ Ghanam\ Baraha.docx inputs/TS\ 4.3\ Ghanam\ Baraha.docx inputs/TS\ 4.4\ Ghanam\ Baraha.docx inputs/TS\ 4.5\ Ghanam\ Baraha.docx >x.txt 
 ```
 This step generates a file called TS_withPadaGhana.json
 
 ### Step 3h Generate the json files for the Jatai Paatha ###
 ```
-python3 process_jatai.py inputs/TS\ 1.1\ Jatai\ Baraha.docx inputs/TS\ 1.2\ Jatai\ Baraha.docx inputs/TS\ 1.3\ Jatai\ Baraha.docx inputs/TS\ 1.4\ Jatai\ Baraha.docx inputs/TS\ 1.5\ Jatai\ Baraha.docx inputs/TS\ 1.6\ Jatai\ Baraha.docx inputs/TS\ 1.7\ Jatai\ Baraha.docx inputs/TS\ 1.8\ Jatai\ Baraha.docx inputs/TS\ 2.1\ Jatai\ Baraha.docx inputs/TS\ 2.2\ Jatai\ Baraha.docx inputs/TS\ 2.3\ Jatai\ Baraha.docx inputs/TS\ 2.4\ Jatai\ Baraha.docx inputs/TS\ 2.5\ Jatai\ Baraha.docx inputs/TS\ 2.6\ Jatai\ Baraha.docx
+python3 process_jatai.py inputs/TS\ 1.1\ Jatai\ Baraha.docx inputs/TS\ 1.2\ Jatai\ Baraha.docx inputs/TS\ 1.3\ Jatai\ Baraha.docx inputs/TS\ 1.4\ Jatai\ Baraha.docx inputs/TS\ 1.5\ Jatai\ Baraha.docx inputs/TS\ 1.6\ Jatai\ Baraha.docx inputs/TS\ 1.7\ Jatai\ Baraha.docx inputs/TS\ 1.8\ Jatai\ Baraha.docx inputs/TS\ 2.1\ Jatai\ Baraha.docx inputs/TS\ 2.2\ Jatai\ Baraha.docx inputs/TS\ 2.3\ Jatai\ Baraha.docx inputs/TS\ 2.4\ Jatai\ Baraha.docx inputs/TS\ 2.5\ Jatai\ Baraha.docx inputs/TS\ 2.6\ Jatai\ Baraha.docx inputs/TS\ 3.1\ Jatai\ Baraha.docx inputs/TS\ 3.2\ Jatai\ Baraha.docx inputs/TS\ 3.3\ Jatai\ Baraha.docx inputs/TS\ 3.4\ Jatai\ Baraha.docx inputs/TS\ 3.5\ Jatai\ Baraha.docx inputs/TS\ 4.1\ Jatai\ Baraha.docx inputs/TS\ 4.2\ Jatai\ Baraha.docx inputs/TS\ 4.3\ Jatai\ Baraha.docx inputs/TS\ 4.4\ Jatai\ Baraha.docx inputs/TS\ 4.5\ Jatai\ Baraha.docx
 ```
 This step generates a file called TS_withPadaGhanaJatai.json
-### Step 3i Generate the PDF and the markdown files ###
+### Step 3i Generate the json files for the Krama Paatha ###
+```
+python3 process_krama.py inputs/TS\ 1.1\ Baraha\ Kramam.docx inputs/TS\ 1.2\ Baraha\ Kramam.docx inputs/TS\ 1.3\ Baraha\ Kramam.docx inputs/TS\ 1.4\ Baraha\ Kramam.docx inputs/TS\ 1.5\ Baraha\ Kramam.docx inputs/TS\ 1.6\ Baraha\ Kramam.docx inputs/TS\ 1.7\ Baraha\ Kramam.docx inputs/TS\ 2.1\ Baraha\ Kramam.docx inputs/TS\ 2.2\ Baraha\ Kramam.docx inputs/TS\ 2.3\ Baraha\ Kramam.docx inputs/TS\ 2.4\ Baraha\ Kramam.docx inputs/TS\ 2.5\ Baraha\ Kramam.docx inputs/TS\ 2.6\ Baraha\ Kramam.docx
+```
+This step generates a file called TS_withPadaGhanaJataiKrama.json
+### Step 3j Generate the PDF and the markdown files ###
 
 ```
 python3 generatePDF.py
