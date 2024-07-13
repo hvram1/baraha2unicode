@@ -210,6 +210,7 @@ def CreatePdf (templateFileName,name,DocfamilyName,data):
         with open(tmpfilename,"w") as f:
             f.write(document)
         result = subprocess.Popen(["latexmk","-xelatex", "--interaction=nonstopmode","--silent",tmpfilename],cwd=tmpdirname)
+        #result = subprocess.Popen(["latexmk","-xelatex", "--interaction=nonstopmode",tmpfilename],cwd=tmpdirname)
         result.wait()
         src_pdf_file=Path(f"{tmpdirname}/{PdfFileName}")
         dst_pdf_file=Path(f"{outputdir}/{PdfFileName}")

@@ -107,6 +107,7 @@ if args_count := len(sys.argv) < 2:
     print("Provide a file name ")
     raise SystemExit(2)
 for file_name in sys.argv[1:]:
+    print(file_name)
     #file_name = sys.argv[1]
     text=""
     document = Document(file_name)
