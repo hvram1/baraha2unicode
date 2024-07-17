@@ -1,0 +1,33 @@
+{
+    "id": "0.0",
+    "classification": {
+        "kanda": "0",
+        "prasna": "0",
+        "anuvakkam": "0",
+        "panchasat": "0"
+    },
+    "attribute": {
+        "rishi": "",
+        "devata": "",
+        "chandas": ""
+    },
+    "samhita": {
+        "lines": []
+    },
+    
+    "padapaatha":{
+        "lines":[]
+
+    },
+    "kramampaatha":{
+        "lines":[]
+    },
+
+    "jataipaatha":{
+        "lines":[]
+    },
+
+    "ghanapaatha":{
+        "lines":[]
+    }
+}
